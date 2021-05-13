@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary" mode="ios">
+    <ion-buttons slot="start" >
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Formulário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Formulário</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-img [src]="image"></ion-img>
+  <form #formUp="ngForm" (ngSubmit)="onSubmit(formUp)">
+    <ion-item class="ion-text-wrap">
+      <ion-label position="floating">Produto:</ion-label>
+      <ion-input type="text" name="nome" [ngModel]="product.nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantidade:</ion-label>
+      <ion-input type="text" name="qtd" [ngModel]="product.qtd"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" color="success" expand="block">Atualizar</ion-button>
+
+  </form>
+
+
+
+
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary" mode="ios">
+    <ion-title> Shopping List </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Shopping List</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+    <ion-img [src]="image"></ion-img>
+
+    <ion-list >
+      <ion-item-sliding *ngFor="let item of lista">
+        <ion-item>
+
+          <ion-icon name="ellipse-outline" *ngIf="!item.status"></ion-icon>
+          <ion-icon color="success" name="ellipse" *ngIf="item.status"></ion-icon>
+          <ion-label><strong>Produto: </strong>{{item.nome}}</ion-label>
+          <ion-label><strong>Quantidade: </strong>{{item.qtd}}</ion-label>
+        </ion-item>
+      
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="productDel(item.id)">Excluir</ion-item-option>
+          <ion-item-option color="success" [routerLink]="['/form', item.id]" >Editar</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+
+  <ion-fab horizontal="end" vertical="bottom">
+    <ion-fab-button (click)="alertAdd()"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+  </ion-fab>
+</ion-content>
